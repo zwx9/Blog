@@ -5,7 +5,8 @@ import Login from '../components/pages/Login'
 import Success from "../components/pages/Success";
 import Register from "../components/pages/Register";
 import Index from "../components/pages/Index";
-
+import ForgetPassword from "../components/pages/ForgetPassword";
+import MailCheckCode from "../components/pages/MailCheckCode";
 
 
 Vue.use(Router)
@@ -31,6 +32,16 @@ export default new Router({
       path: '/index',
       name: 'Index',
       component: Index
+    },
+    {
+      path: '/forgetPassword',
+      name: 'ForgetPassword',
+      component: ForgetPassword
+    },
+    {
+      path: '/mailCheckCode',
+      name: 'MailCheckCode',
+      component: MailCheckCode
     }
   ]
 })

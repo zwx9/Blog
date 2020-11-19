@@ -18,6 +18,7 @@
       <option>后端开发</option>
     </select>
     <br><br>
+    邮箱：<input type="email" v-model="registerForm.email" placeholder="请输入电子邮箱"/>
 
     <button v-on:click="register">注册</button>
 
@@ -38,13 +39,13 @@ export default {
         age: '',
         identity: ''
       },
-      result: []
+      result: [],
     }
   },
   methods:{
-    // getSex(){
-    //   this.gender
-    // },
+    getSex(){
+      this.gender
+    },
     register(){
       this.$axios.post('/api/register',{
         username: this.registerForm.username,
@@ -54,10 +55,12 @@ export default {
         age: this.registerForm.age,
         identity: this.registerForm.identity
       })
-        console.log(this.registerForm.identity)
       .then(res =>{
         if (res.data.code === 20001){
           this.$router.replace({path:'/login'})
+        }
+        else {
+          window.alert("注册失败，请重试！")
         }
       })
     }
