@@ -4,9 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
+
+Vue.use(ElementUI);
 
 // var axios = require('axios')
 axios.defaults.baseURL = 'http://localhost:8081/'
@@ -16,15 +20,7 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  render: h => h(App)
 })
 
-new Vue({
-  el: '#select_sex',
-  data:{
-    gender: ''
-  },
-  router,
-  components: { Register },
-  template: '<Register/>'
-})
